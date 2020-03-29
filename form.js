@@ -9,6 +9,7 @@ var server = http.createServer((req, res) => {
         });
         req.on('end', () => {
             console.log(body);
+            fs.writeFileSync('message.txt', body);
             res.end('ok');
         });
     } 
@@ -29,6 +30,3 @@ var server = http.createServer((req, res) => {
     }
 });
 server.listen(8080);
-
-
-fs.writeFileSync('message.txt', server);
